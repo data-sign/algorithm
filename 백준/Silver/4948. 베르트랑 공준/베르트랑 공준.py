@@ -1,26 +1,23 @@
-def sosu(n):
-    if n ==1:
-        return False
-    for i in range(2,int(n**0.5)+1):
-        if n%i==0:
-            return False
-    return True							#소수 구하는 방식은 위와 같다
+# n 범위 지정 
+def isPrime(num):
+    if num==1:
+        return True
+    else:
+        for i in range(2, int(num**0.5)+1):
+            if num%i == 0:
+                return False
+        return True
 
-all_list = list(range(2,246912))		#문제에서 제한한 범위
-sosu_lst = []							#for문 밖에 리스트 정의
+sosu_lst = []
+for i in range(2, 123_456*2):
+    if isPrime(i): 
+        sosu_lst.append(i)
 
-for i in all_list:						#2부터 2*123,456 범위
-    if sosu(i):							#sosu함수에 해당하면
-        sosu_lst.append(i)				#리스트에 추가
-
-n = int(input())
-
-while True:
-    count=0					#갯수를 세야하는 조건 때문에 카운트
-    if n == 0 :
-            break
-    for i in sosu_lst:		#sosu_lst 중에서
-        if n < i <=2*n:		#입력한 값의 범위 내에서 값이 있으면
-            count+=1		#있을 때 마다 카운트 +1
-    print(count)
-    n = int(input())		#0 입력받기 전까지 계속 해야하므로 입력 받음
+import sys
+while True: 
+    n = int(sys.stdin.readline())
+    if n ==0: 
+        break
+    else:
+        ans = len([x for x in sosu_lst if n < x <= 2*n])
+        print(ans)
