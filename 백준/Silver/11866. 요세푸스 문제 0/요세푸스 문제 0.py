@@ -1,3 +1,7 @@
+## 정답 풀이 
+# k-1번째까지 큐 append
+# k번째 -> answer append 
+
 from collections import deque
 
 queue = deque()
@@ -13,8 +17,6 @@ while queue:
         queue.append(queue.popleft())
     answer.append(queue.popleft())
 
-print("<",end='')
-for i in range(len(answer)-1):
-    print("%d, "%answer[i], end='')
-print(answer[-1], end='')
+print("<", end='')
+print(*answer, sep=', ', end='')
 print(">")
