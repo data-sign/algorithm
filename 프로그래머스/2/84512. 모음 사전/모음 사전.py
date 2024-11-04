@@ -8,6 +8,6 @@ def solution(word):
             print(j)
             dictionary.append(''.join(j))
 
-    dictionary = sorted(list(set(dictionary)))
+    dictionary = sorted(set(dictionary))
     answer = dictionary.index(word) + 1
     return answer
