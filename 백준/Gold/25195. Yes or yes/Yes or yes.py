@@ -17,20 +17,20 @@ def dfs(now_v):
             dfs(next_v)
             visited[next_v] = False
 
-if __name__ == "__main__":
-    N, M = map(int, input().split())
 
-    graph = [[] for _ in range(N + 1)]
-    visited = [False] * (N + 1)
-    for _ in range(M):
-        v1, v2 = map(int, input().split())
-        graph[v1].append(v2)
+N, M = map(int, input().split())
 
-    S = int(input())
-    is_bear = {}
-    s = list(map(int, input().split()))
-    for _s in s:
-        is_bear[_s] = True
+graph = [[] for _ in range(N + 1)]
+visited = [False] * (N + 1)
+for _ in range(M):
+    v1, v2 = map(int, input().split())
+    graph[v1].append(v2)
 
-    dfs(1)
-    print("Yes")
+S = int(input())
+is_bear = {}
+s = list(map(int, input().split()))
+for _s in s:
+    is_bear[_s] = True
+
+dfs(1)
+print("Yes")
